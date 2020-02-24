@@ -11,7 +11,8 @@ This application aims at creating a common portal for donating to a fundraiser o
 3.Goal of the project (who are you developing the project for)
 The goal is to provide a common portal for both, people who want to give money to a good cause and people who need money for a noble cause.
 
-4.Technology stack: ReactJS -FrontEnd, NodeJS(ExpressJS) – ServerRedux -State Maintenance,Amazon ec2 – Hosting the tool on cloud, RDS, Kubernetes, Tableau, Docker                                                                                                                                    	
+4.Technology stack: ReactJS -FrontEnd, NodeJS(ExpressJS) – ServerRedux -State Maintenance,Amazon ec2 – Hosting the tool on cloud, RDS, Kubernetes, Tableau, Docker                                                                                                                              
+
 Project Idea 2:
 
 1.Project Title: Skin Disease detection based on Images of body parts.
