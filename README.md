@@ -1,5 +1,8 @@
 # ProjectGroup-18
 
+# Approved - Seizure Detetection
+
+
 Project Idea-1
  
 1.Project Title
