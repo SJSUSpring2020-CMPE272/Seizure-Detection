@@ -1,0 +1,24 @@
+.style__tag___JUqHD{
+    display: inline-block;
+    border-radius: 3px;
+    padding: 4px 8px;
+    margin: 0 8px 8px 0;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 500;
+    max-width: 100%;
+    vertical-align: middle;
+    background-color: #f0f0f0;
+    color: #575757;
+}
+.style__remove___2cUUS {
+    color: #707070;
+    background: rgba(0,0,0,0);
+    border: 0;
+    margin: 0;
+    padding: 0 0 0 4px;
+    -webkit-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
+    outline: 0
+}

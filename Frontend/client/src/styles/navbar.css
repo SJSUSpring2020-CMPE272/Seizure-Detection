@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+
+  align-items: center;
+  border-radius: 4px;
+  background-color: #eceff1;
+}
+
+.navbar__link {
+  margin: 1em;
+  font-size: 2em;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  color: #181818;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar__link:hover {
+  transform: translateY(-2px);
+}
+
+.navbar__link--active {
+  border-bottom: 3px solid #29b6f6;
+  transition: border-bottom 0.5s ease-in-out;
+}
+input[id^="navsearch"]::placeholder {
+  
+  text-align: center;
+  align-content: center;
+  margin-left: 100px;
+  
+}
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: red;
+  }
+  a {
+   
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }

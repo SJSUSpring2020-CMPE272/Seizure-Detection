@@ -1,0 +1,31 @@
+.sidebar{
+    background: #1569e0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    
+    position: relative;
+    text-align: center;
+    padding: 25% 15%;
+    height: 200px;
+    width:37.5%
+}
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 25px;
+}
+
+.marketing{
+    text-align: left;
+    margin-bottom: 150px;
+}
+.main{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10% 0;
+    flex-grow: 1;
+    position: relative;
+}

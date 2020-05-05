@@ -1,0 +1,41 @@
+.style__topBar___1iT35 {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px 16px;
+  }
+  .style__message___16Jw4 {
+    display: inline-block;
+    border-radius: 24px;
+    margin: 0;
+    padding: 16px;
+    white-space: nowrap;
+    word-break: break-word;
+    background: #f0f0f0;
+    margin-left: 16px;
+  }
+  .style__message___16Jw41 {
+    display: inline-block;
+    border-radius: 24px;
+    margin: 0;
+    padding: 16px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: hsl(194, 46%, 82%);
+    margin-left: 16px;
+  }
+  .style__jobs___3seWY {
+    position: relative;
+    overflow-y: scroll;
+    flex-direction: column;
+  }
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    
+  }
+  .bottom_button{
+      position: absolute;
+      bottom: 10px;
+      align-items: flex-end;
+      right:5px;
+  }
+  
