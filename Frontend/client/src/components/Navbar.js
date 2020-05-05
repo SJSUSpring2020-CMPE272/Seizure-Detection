@@ -46,7 +46,7 @@ class Navbar extends Component {
           </button>
           <a
             className="navbar-brand"
-            style={{ color: "#dc3545", fontWeight: "800", fontSize: "150%" }}
+            style={{ color: "#dc3545", fontWeight: "800", fontSize: "120%" }}
             href="/home"
           >
             Seizure Detection
@@ -94,11 +94,11 @@ class Navbar extends Component {
                 style={{
                   color: "#dc3545",
                   fontWeight: "800",
-                  fontSize: "150%"
+                  fontSize: "120%"
                 }}
                 href="/donor/home"
               >
-                healing hEARTS
+                Seizure Detection
               </a>
             ) : localStorage.getItem("company") ? (
               <a
@@ -106,7 +106,7 @@ class Navbar extends Component {
                 style={{
                   color: "#dc3545",
                   fontWeight: "800",
-                  fontSize: "150%"
+                  fontSize: "120%"
                 }}
                 href="/company/home"
               >
@@ -118,7 +118,7 @@ class Navbar extends Component {
                 style={{
                   color: "#dc3545",
                   fontWeight: "800",
-                  fontSize: "150%"
+                  fontSize: "120%"
                 }}
                 href="/home"
               >
@@ -126,77 +126,15 @@ class Navbar extends Component {
               </a>
             )}
           </div>
-          <div className="d-flex">
-            <ion-icon
-              name="search"
-              style={{
-                position: "absolute",
-                height: "14px",
-                width: "20px",
-                top: "50%",
-                //left: "265px",
-                marginLeft: "10px",
-                size: "13px"
-              }}
-              size="large"
-            />
-            <input
-              type="text"
-              id="navsearch"
-              className="form-control mt-2 mx-2 mr-sm-2 pl-4 "
-              style={{ marginRight: "15px" }}
-              placeholder="search"
-            />
-          </div>
+          
         </div>
         <div className="d-flex">
-          <div>
-            {localStorage.getItem("student") ? (
-              <a
+        <p
                 className={liClasses}
                 style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/donor/fundraisers"
               >
-                Fundraisers
-              </a>
-            ) : (
-              ""
-            )}
-          </div>
-
-          <div>
-            {localStorage.getItem("student") ? (
-              <a
-                className={liClasses}
-                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/donor/history"
-              >
-                History
-              </a>
-            ) : (
-              ""
-            )}
-          </div>
-          <div>
-            {localStorage.getItem("student") ? (
-              <a
-                className={liClasses}
-                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/message"
-              >
-                Message
-              </a>
-            ) : (
-              <a
-                className={liClasses}
-                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/message"
-              >
-                Message
-              </a>
-            )}
-          </div>
-
+              Welcome <i>{localStorage.getItem("username")}</i>
+              </p>
           <div>
             {localStorage.getItem("student") ? (
               <a

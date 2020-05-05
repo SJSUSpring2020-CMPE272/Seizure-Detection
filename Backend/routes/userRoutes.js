@@ -10,6 +10,8 @@ const passport = require("passport");
 
 const { User } = require("../db/usermodel");
 const bcrypt = require("bcrypt");
+var ObjectId = require('mongoose').Types.ObjectId; 
+
 
 route.post("/register", async (req, res) => {
   console.log(req.body.student.email);
@@ -99,5 +101,70 @@ route.post("/login", async (req, res) => {
     });
   }
 });
+
+route.get("/address/:id", async (req, res) => {
+ 
+  try {
+    const user = await User.findOne({
+     _id:req.params.id
+    });
+ 
+
+    res.status(201).send({
+     data:{ user }
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      errors: {
+        body: err
+      }
+    });
+  }
+});
+route.post("/address/:id", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      _id: ObjectId(req.params.id),
+     
+    });
+    console.log(req.body)
+    user.emergencyContacts.push({
+      name:req.body.payload.name,
+      address:req.body.payload.address,
+      phone:req.body.payload.phone,
+      relation:req.body.payload.relation
+    })
+   
+    user.save(err=>{
+      if(err){
+        res.status(500).send({
+          errors: {
+            body: err
+          }
+        });
+      }
+      else{
+        let data={
+          address:user.emergencyContacts
+        }
+        res.status(201).send({
+          data:{user}
+        });
+      }
+    })
+    
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      errors: {
+        body: err
+      }
+    });
+  }
+});
+
+
+
 
 module.exports = route;

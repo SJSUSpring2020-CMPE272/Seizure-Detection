@@ -23,6 +23,7 @@ const authReducer = (state = initState, action) => {
         "student",
         JSON.stringify(action.payload.user.token)
       );
+      localStorage.setItem("username",action.payload.user.name)
       localStorage.setItem("loginId", action.payload.user.resp._id);
 
       return {

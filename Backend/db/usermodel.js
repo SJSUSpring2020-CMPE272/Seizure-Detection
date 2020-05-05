@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const contacts = new mongoose.Schema({
-  contact: String
+  name:String,
+  phone:String,
+  address:String,
+  relation:String
+
 });
 
 const user = new mongoose.Schema({
