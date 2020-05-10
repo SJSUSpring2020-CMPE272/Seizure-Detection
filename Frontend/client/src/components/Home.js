@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import "../styles/home.css";
+import api_route from "./../app-config";
+
 class Home extends Component {
   state = {};
   render() {
     localStorage.clear();
     return (
       <div>
-        <div className="background-style">
-          <div align="center">
-            <div className="block-style mt-5">
-              Growing up in poverty, children face tough challenges: hunger and
-              malnutrition, limited access to education and medical services.{" "}
-              {"\n"}But with support from people like you, we can help children
-              get the health care, education, life skills, job-readiness
-              training and confidence they need to create lasting change in
-              their lives and communities.{"\n"}
-              {"\n"}Together, we can end poverty for good
-            </div>
-            <div className="block-style mt-5">
-              Join our community with 1+ million people all over the world
-            </div>
+        <img
+          src={`${api_route.host}/seizure.jpg`}
+          style={{ width: "100%", opacity: "0.7" }}
+        />
+        <div className="centered">
+          <div className="block-style mt-5" align="center">
+            The objective is to create a prototype that will enable safe driving
+            of patients who have been suffering from drug resistant epilepsy and
+            tonic seizures.{"\n"} This will be achieved by applying emergency
+            brakes to the vehicle and sending alert messages to patients
+            contacts when the patient is just about to have a seizure.
+          </div>
+          <div className="block-style mt-5" align="center">
+            Join our community and ensure your safety
           </div>
         </div>
       </div>

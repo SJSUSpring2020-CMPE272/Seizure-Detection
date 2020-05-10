@@ -70,11 +70,11 @@ class LoginUser extends Component {
                 height: "550px"
               }}
             >
-              <img
+              {/* <img
                 alt="Healing heart logo image"
                 height="100"
                 src={`${api_route.host}//donorbox.jpeg`}
-              />
+              /> */}
 
               <div className="content">
                 <Translate
