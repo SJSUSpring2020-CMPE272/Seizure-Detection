@@ -106,21 +106,34 @@ class Navbar extends Component {
           >
             Welcome <i>{localStorage.getItem("username")}</i>
           </p>
+        </div>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav mr-auto mt-2 mt-md-0">
+            <li className="nav-item">
+              <a
+                className={liClasses}
+                href="/user/address"
+                style={{ fontWeight: "500" }}
+              >
+                Address
+              </a>
+            </li>
 
-          <div>
-            <a
-              className={liClasses}
-              href="/home"
-              style={{ fontWeight: "500" }}
-              onClick={() => {
-                localStorage.getItem("student")
-                  ? this.props.logoutStudent()
-                  : this.props.logoutCompany();
-              }}
-            >
-              Logout
-            </a>
-          </div>
+            <li className="nav-item">
+              <a
+                className={liClasses}
+                href="/home"
+                style={{ fontWeight: "500" }}
+                onClick={() => {
+                  localStorage.getItem("student")
+                    ? this.props.logoutStudent()
+                    : this.props.logoutCompany();
+                }}
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
         </div>
       </nav>
     );

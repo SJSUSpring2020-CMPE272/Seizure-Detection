@@ -14,11 +14,23 @@ const user = new mongoose.Schema({
   emailId: { type: String, unique: true },
   password: String,
   carId: String,
-  emergencyContacts: [contacts]
+  emergencyContacts: [contacts],
+  patient_id:String
 });
 
+const perseizuretime= new mongoose.Schema({
+  id:String
+})
+const seizure =new mongoose.Schema({
+  patientID:Number,
+  startTime:[perseizuretime],
+  endTime:[perseizuretime]
+},
+{collection:'seizure'}
+)
+const Seizure = mongoose.model("seizure", seizure);
 const User = mongoose.model("User", user);
 
 module.exports = {
-  User
+  User,Seizure
 };

@@ -6,7 +6,9 @@ import RegisterUser from "./RegisterUser";
 import Home from "./Home";
 import About from "./About"
 import Architecture from "./Architecture"
-import mainprofile from './mainprofile'
+import addAddress from './addAddress'
+import Analytics from './Analytics'
+
 
 class Main extends Component {
   render() {
@@ -18,7 +20,8 @@ class Main extends Component {
         <Route path="/user/register" component={RegisterUser} />
         <Route path="/about" component={About} />
         <Route path="/architecture" component={Architecture} />
-        <Route path="/user/home" component={mainprofile} />
+        <Route path="/user/address" component={addAddress} />
+        <Route path="/user/home" component={Analytics} />
       </div>
     );
   }

@@ -40,17 +40,12 @@ class RegisterUser extends Component {
       <div className="row">
         <div className="col-1" />
         <div className="col-md-4 col-md-offset-1">
-          <h1 style={{ margin: "6px" }}> Join the Healing Hearts community</h1>
+          <h1 style={{ margin: "6px" }}> Join the community</h1>
           <p style={{ fontSize: "18px", margin: "6px" }}>
             Giving is not just about making a donation, it is about making a
             difference
           </p>
-          <a
-            style={{ color: "#1569e0", padding: "0px" }}
-            href="/company/register"
-          >
-            Here to create a fundraiser? Create an account here.
-          </a>
+          
         </div>
         <div className="col-1" />
         <div
