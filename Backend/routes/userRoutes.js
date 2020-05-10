@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 var multer = require("multer");
 const passport = require("passport");
 
-const { User } = require("../db/usermodel");
+const { User,Seizure } = require("../db/usermodel");
 const bcrypt = require("bcrypt");
 var ObjectId = require("mongoose").Types.ObjectId;
 
@@ -109,6 +109,27 @@ route.get("/address/:id", async (req, res) => {
 
     res.status(201).send({
       data: { user }
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      errors: {
+        body: err
+      }
+    });
+  }
+});
+route.get("/pastseizure/count/:id", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      _id: req.params.id
+    });
+
+    const seizureNumber= await Seizure.findOne({patientId:parseInt(user.patient_id)})
+    console.log(seizureNumber)
+  
+    res.status(201).send({
+      data: { seizureNumber:seizureNumber.startTime.length }
     });
   } catch (err) {
     console.log(err);

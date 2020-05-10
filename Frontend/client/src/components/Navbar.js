@@ -96,7 +96,7 @@ class Navbar extends Component {
                   fontWeight: "800",
                   fontSize: "120%"
                 }}
-                href="/donor/home"
+                href="/user/home"
               >
                 Seizure Detection
               </a>
@@ -140,9 +140,9 @@ class Navbar extends Component {
               <a
                 className={liClasses}
                 style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/donor/list"
+                href="/user/address"
               >
-                Donors
+                Add Address
               </a>
             ) : (
               <a
