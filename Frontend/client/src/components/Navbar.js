@@ -87,73 +87,25 @@ class Navbar extends Component {
     ) : (
       <nav className="navbar  navbar-light bg-light">
         <div className="d-flex">
-          <div>
-            {localStorage.getItem("student") ? (
-              <a
-                className="navbar-brand"
-                style={{
-                  color: "#dc3545",
-                  fontWeight: "800",
-                  fontSize: "120%"
-                }}
-                href="/donor/home"
-              >
-                Seizure Detection
-              </a>
-            ) : localStorage.getItem("company") ? (
-              <a
-                className="navbar-brand"
-                style={{
-                  color: "#dc3545",
-                  fontWeight: "800",
-                  fontSize: "120%"
-                }}
-                href="/company/home"
-              >
-                healing hEARTS
-              </a>
-            ) : (
-              <a
-                className="navbar-brand"
-                style={{
-                  color: "#dc3545",
-                  fontWeight: "800",
-                  fontSize: "120%"
-                }}
-                href="/home"
-              >
-                healing hEARTS
-              </a>
-            )}
-          </div>
-          
+          <a
+            className="navbar-brand"
+            style={{
+              color: "#dc3545",
+              fontWeight: "800",
+              fontSize: "120%"
+            }}
+            href="/user/home"
+          >
+            Seizure Detection
+          </a>
         </div>
         <div className="d-flex">
-        <p
-                className={liClasses}
-                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-              >
-              Welcome <i>{localStorage.getItem("username")}</i>
-              </p>
-          <div>
-            {localStorage.getItem("student") ? (
-              <a
-                className={liClasses}
-                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/donor/list"
-              >
-                Donors
-              </a>
-            ) : (
-              <a
-                className={liClasses}
-                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-                href="/company/list"
-              >
-                Donors
-              </a>
-            )}
-          </div>
+          <p
+            className={liClasses}
+            style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
+          >
+            Welcome <i>{localStorage.getItem("username")}</i>
+          </p>
 
           <div>
             <a
