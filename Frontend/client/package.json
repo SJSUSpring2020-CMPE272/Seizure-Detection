@@ -29,6 +29,7 @@
     "react-translate-component": "^0.15.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
+    // "react-bootstrap": "latest"
   },
   "scripts": {
     "start": "react-scripts --max_old_space_size=4096 start",

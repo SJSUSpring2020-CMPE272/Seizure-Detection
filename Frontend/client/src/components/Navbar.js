@@ -5,6 +5,17 @@ import PropTypes from "prop-types";
 import { logoutCompany } from "../redux/actions/authAction";
 import { logoutStudent } from "../redux/actions/authAction";
 import { connect } from "react-redux";
+// import {
+//   Container,
+//   Row,
+//   Col,
+//   Form,
+//   Button,
+//   Navbar,
+//   Nav,
+//   Image,
+//   FormControl
+// } from "react-bootstrap";
 
 class Navbar extends Component {
   constructor(props) {
@@ -100,14 +111,7 @@ class Navbar extends Component {
           </a>
         </div>
         <div className="d-flex">
-          <p
-            className={liClasses}
-            style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
-          >
-            Welcome <i>{localStorage.getItem("username")}</i>
-          </p>
-        </div>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          {/* <div className="collapse navbar-collapse" id="navbarTogglerDemo02"> */}
           <ul className="navbar-nav mr-auto mt-2 mt-md-0">
             <li className="nav-item">
               <a
@@ -133,7 +137,16 @@ class Navbar extends Component {
                 Logout
               </a>
             </li>
+            <li className="nav-item">
+              <p
+                className={liClasses}
+                style={{ fontWeight: "500", color: "rgba(0,0,0,.5)" }}
+              >
+                Welcome <i>{localStorage.getItem("username")}</i>
+              </p>
+            </li>
           </ul>
+          {/* </div> */}
         </div>
       </nav>
     );
