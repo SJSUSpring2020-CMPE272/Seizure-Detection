@@ -4,6 +4,10 @@ import axios from "axios";
 import createPlotlyComponent from "react-plotly.js/factory";
 import api_route from "../app-config";
 import GoogleMapReact from "google-map-react";
+import shouldPureComponentUpdate from 'react-pure-render/function';
+import MyGreatPlaceWithHover from './my_great_place_with_hover.jsx';
+
+import {K_SIZE} from './my_great_place_with_hover_styles.js';
 const AnyReactComponent = ({ text }) => (
   <div>
     <div
@@ -16,8 +20,7 @@ const AnyReactComponent = ({ text }) => (
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "100%",
-        backgroundImage:
-          "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+       
       }}
     ></div>
     {text}
@@ -32,8 +35,12 @@ class Analytics extends Component {
       lat: 37.350226,
       lng: -121.883911,
     },
-    zoom: 11,
+    zoom: 13,
+    greatPlaceCoords: {lat: 59.724465, lng: 30.080121}
+
   };
+  shouldComponentUpdate = shouldPureComponentUpdate;
+
   componentDidMount() {
     let config = {
       headers: {
@@ -54,6 +61,7 @@ class Analytics extends Component {
       });
   }
   render() {
+      
     return (
       <div className="container" align="center">
         <h3 className="my-4">Analytics Dashboard</h3>
@@ -75,7 +83,7 @@ class Analytics extends Component {
                 ]}
               />
               <figcaption align="center">
-                Fig1. - Category wise Donation
+                Fig1. - Seizures Per Weak
               </figcaption>
             </figure>
           </div>{" "}
@@ -88,12 +96,14 @@ class Analytics extends Component {
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
             yesIWantToUseGoogleMapApiInternals
+            hoverDistance={K_SIZE / 2}
           >
             <AnyReactComponent
               lat={37.350226}
               lng={-121.883911}
-              text={"My Marker"}
+              text={'My Marker'}
             />
+              <MyGreatPlaceWithHover lat={37.350226} lng={-121.883911} text={'A'} /* Kreyser Avrora */ />
           </GoogleMapReact>
         </div>
       </div>
