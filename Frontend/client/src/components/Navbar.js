@@ -122,7 +122,15 @@ class Navbar extends Component {
                 Address
               </a>
             </li>
-
+            <li className="nav-item">
+              <a
+                className={liClasses}
+                href="/user/analytics"
+                style={{ fontWeight: "500" }}
+              >
+                Analytics
+              </a>
+            </li>
             <li className="nav-item">
               <a
                 className={liClasses}
