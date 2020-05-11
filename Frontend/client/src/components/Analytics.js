@@ -13,22 +13,23 @@ class Analytics extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+      lenghtarray:[]
     };
   }
   onMarkerClick(props, marker, e) {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
     });
   }
 
   componentDidMount() {
     let config = {
       headers: {
-        Authorization: `${window.localStorage.getItem("student")}`
-      }
+        Authorization: `${window.localStorage.getItem("student")}`,
+      },
     };
     axios
       .get(
@@ -37,19 +38,34 @@ class Analytics extends Component {
         )}`,
         config
       )
-      .then(res => {
+      .then((res) => {
         console.log(res.data.data.seizureNumber);
         this.setState({ x: res.data.data.seizureNumber });
         this.setState({ y: res.data.data.seizureNumber });
-      });
-    axios
-      .get(
-        `${api_route.host}/user/getcoord/${localStorage.getItem("loginId")}`,
-        config
-      )
-      .then(response => {
-        console.log(response.data.data.locations);
-        this.setState({ dataArr: response.data.data.locations });
+        this.setState({timediff:res.data.data.timediff})
+        let lenghtarray=[]
+        for (let i=1;i<=res.data.data.seizureNumber;i++){
+           
+            lenghtarray.push(i)
+        }
+        this.setState({lenghtarray})
+
+        axios
+          .get(
+            `${api_route.host}/user/getcoord/${localStorage.getItem(
+              "loginId"
+            )}`,
+            config
+          )
+          .then((response) => {
+            console.log(response.data.data.locations);
+            this.setState({
+              dataArr: response.data.data.locations.slice(
+                0,
+                res.data.data.seizureNumber
+              ),
+            });
+          });
       });
   }
   render() {
@@ -58,36 +74,59 @@ class Analytics extends Component {
       { lat: 42.02, lng: -77.01 },
       { lat: 42.03, lng: -77.02 },
       { lat: 41.03, lng: -77.04 },
-      { lat: 42.05, lng: -77.02 }
+      { lat: 42.05, lng: -77.02 },
     ];
     var bounds = new this.props.google.maps.LatLngBounds();
     for (var i = 0; i < points.length; i++) {
       bounds.extend(points[i]);
     }
     return (
-      <div className="container" align="center">
+      <div className="" align="center">
         <h3 className="my-4">Analytics Dashboard</h3>
         <div className="card" align="center">
           <div className="card-header" align="center">
-            Seizures occured per weak
+            Seizures data
           </div>
-          <div className="card-body">
-            <figure>
-              <Plot
-                data={[
-                  {
-                    x: [1, 2, 3, 4],
-                    y: [2, 4, this.state.y, 3],
-                    type: "scattergl",
-                    marker: { color: "red" },
-                    name: "Seizures Per Weak"
-                  }
-                ]}
-              />
-              <figcaption align="center">
-                Fig1. - Seizures occured per weak
-              </figcaption>
-            </figure>
+          <div className="card-body d-flex">
+            <div className="col-6">
+              <figure>
+                <Plot
+                  data={[
+                    {
+                      x: [1, 2, 3, 4],
+                      y: [2, 4, this.state.y, 3],
+                      type: "scattergl",
+                      marker: { color: "red" },
+                      name: "Seizures Per Weak",
+                    },
+                  ]}
+                  layout={{ width:600, title: "Seizures number" }}
+                />
+                <figcaption align="center">
+                  Fig1. - Seizures occured per weak
+                </figcaption>
+              </figure>
+            </div>
+            <div className="col-5">
+              <figure>
+                <Plot
+                  data={[
+                    {
+                      x: this.state.lenghtarray,
+                      y: this.state.timediff,
+                      type: "scatter",
+                      mode: "lines+markers",
+                      marker: { color: "red" },
+                    },
+                    { type: "bar", x: this.state.lenghtarray, y: this.state.timediff },
+                  ]}
+                  layout={{ width:600, title: "Time of per seizure in seconds" }}
+                />
+                <figcaption align="center">
+                  Fig2. -Time of per seizure
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
         <div className="card" align="center">
@@ -98,16 +137,16 @@ class Analytics extends Component {
             {this.state.dataArr ? (
               <div>
                 <Map
+                  style={{ height: "95vh", width: "97%" }}
                   google={this.props.google}
                   initialCenter={{
                     lat: this.state.dataArr[0].lat,
-                    lng: this.state.dataArr[0].long
+                    lng: this.state.dataArr[0].long,
                   }}
                   //bounds={bounds}
                   zoom={9}
                 >
-                  {this.state.dataArr.map(point => (
-                 
+                  {this.state.dataArr.map((point) => (
                     <Marker
                       key={point.lat}
                       onClick={this.onMarkerClick}
@@ -115,9 +154,8 @@ class Analytics extends Component {
                       name={point.locationName}
                       position={{ lat: point.lat, lng: point.long }}
                     ></Marker>
-                  
                   ))}
-                   {/* <Marker
+                  {/* <Marker
                 onClick={this.onMarkerClick}
                 title={"The marker`s title will appear as a tooltip."}
                 name={"SOMA"}
@@ -155,5 +193,5 @@ class Analytics extends Component {
 
 // export default Analytics;
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDDcPwALh103uGlDrdPVD2xcKmA7BY5Weo"
+  apiKey: "AIzaSyDDcPwALh103uGlDrdPVD2xcKmA7BY5Weo",
 })(Analytics);
