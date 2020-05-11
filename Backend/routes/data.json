@@ -1,13 +1,13 @@
 {
   "locations": [
     {
-      "lat": "37.350226",
-      "long": "-121.883911",
+      "lat": 37.350226,
+      "long": -121.883911,
       "locationName": "Japan town"
     },
     {
-      "lat": "37.3632985",
-      "long": "-122.0419272",
+      "lat": 37.3632985,
+      "long": -122.0419272,
       "locationName": "859-881 Russet Dr"
     },
     {

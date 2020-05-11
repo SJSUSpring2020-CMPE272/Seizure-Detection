@@ -48,7 +48,8 @@ class Analytics extends Component {
         config
       )
       .then(response => {
-        console.log(response.data);
+        console.log(response.data.data.locations);
+        this.setState({ dataArr: response.data.data.locations });
       });
   }
   render() {
@@ -94,25 +95,29 @@ class Analytics extends Component {
             Location of Seizures
           </div>
           <div className="card-body" style={{ height: "100vh", width: "100%" }}>
-            <Map
-              google={this.props.google}
-              //initialCenter={{
-              //lat: 42.39,
-              //lng: -72.52
-              //}}
-              //bounds={bounds}
-              zoom={14}
-            >
-              {/* <Marker
-          onClick={this.onMarkerClick}
-          icon={{
-            url: "/img/icon.svg",
-            anchor: new google.maps.Point(32, 32),
-            scaledSize: new google.maps.Size(64, 64)
-          }}
-          name={"Current location"}
-        /> */}
-              <Marker
+            {this.state.dataArr ? (
+              <div>
+                <Map
+                  google={this.props.google}
+                  initialCenter={{
+                    lat: this.state.dataArr[0].lat,
+                    lng: this.state.dataArr[0].long
+                  }}
+                  //bounds={bounds}
+                  zoom={9}
+                >
+                  {this.state.dataArr.map(point => (
+                 
+                    <Marker
+                      key={point.lat}
+                      onClick={this.onMarkerClick}
+                      title={point.locationName}
+                      name={point.locationName}
+                      position={{ lat: point.lat, lng: point.long }}
+                    ></Marker>
+                  
+                  ))}
+                   {/* <Marker
                 onClick={this.onMarkerClick}
                 title={"The marker`s title will appear as a tooltip."}
                 name={"SOMA"}
@@ -127,16 +132,20 @@ class Analytics extends Component {
                 onClick={this.onMarkerClick}
                 name={"Your position"}
                 position={{ lat: 37.762391, lng: -122.439192 }}
-              />
-              <InfoWindow
-                marker={this.state.activeMarker}
-                visible={this.state.showingInfoWindow}
-              >
-                <div>
-                  <h1>{this.state.selectedPlace.name}</h1>
-                </div>
-              </InfoWindow>
-            </Map>
+              />  */}
+                  <InfoWindow
+                    marker={this.state.activeMarker}
+                    visible={this.state.showingInfoWindow}
+                  >
+                    <div>
+                      <h1>{this.state.selectedPlace.name}</h1>
+                    </div>
+                  </InfoWindow>
+                </Map>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

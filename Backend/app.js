@@ -50,6 +50,7 @@ mongoose.connect(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/user", require("./routes/userRoutes"));
+app.use("/user/getcoord", require("./routes/getLocation"));
 
 module.exports = app;
 // app.listen(3001);
