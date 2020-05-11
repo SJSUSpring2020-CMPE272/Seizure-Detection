@@ -1,0 +1,39 @@
+{
+  "locations": [
+    {
+      "lat": 37.350226,
+      "long": -121.883911,
+      "locationName": "Japan town"
+    },
+    {
+      "lat": 37.3632985,
+      "long": -122.0419272,
+      "locationName": "859-881 Russet Dr"
+    },
+    {
+      "lat": "37.3807895",
+      "long": "-122.0753177",
+      "locationName": "In-N-Out Burger"
+    },
+    {
+      "lat": "37.32458",
+      "long": "-121.9697436",
+      "locationName": "Burger Ban"
+    },
+    {
+      "lat": "37.4321055",
+      "long": "-122.1481688",
+      "locationName": "1999-1901 Alma St"
+    },
+    {
+      "lat": "37.7553844",
+      "long": "-122.5111803",
+      "locationName": "Outer Sunset"
+    },
+    {
+      "lat": "37.7291511",
+      "long": "-122.4851769",
+      "locationName": "Lakeshore"
+    }
+  ]
+}

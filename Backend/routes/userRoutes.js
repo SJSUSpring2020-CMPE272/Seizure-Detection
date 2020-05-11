@@ -126,9 +126,15 @@ route.get("/pastseizure/count/:id", async (req, res) => {
     });
 
     const seizureNumber= await Seizure.findOne({patientId:parseInt(user.patient_id)})
-  
+    console.log(seizureNumber)
+    var timediff=[]
+    seizureNumber.time.map(a=>{
+      console.log(a)
+      timediff.push(parseInt(a.endTime)-parseInt(a.startTime))
+    })
+    
     res.status(201).send({
-      data: { seizureNumber:seizureNumber.startTime.length }
+      data: { timediff,seizureNumber:seizureNumber.time.length }
     });
   } catch (err) {
     console.log(err);
