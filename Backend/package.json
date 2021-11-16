@@ -7,7 +7,7 @@
     "test": "mocha test/test.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.624.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt": "^3.0.8",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
